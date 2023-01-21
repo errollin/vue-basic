@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="expenses-list">
+  <ul v-if="props.expenses.length > 0" class="expenses-list">
     <ExpenseItem
       v-for="expense in props.expenses"
       :key="expense.id"
@@ -16,7 +16,8 @@ const props = defineProps<{
       :amount="expense.amount"
       :date="expense.date"
     />
-  </div>
+  </ul>
+  <h2 v-else class="expenses-list__fallback">No Expenses Found!</h2>
 </template>
 
 <style lang="scss" scoped>

@@ -10,13 +10,15 @@ const props = defineProps<{
 </script>
 
 <template>
-  <Card className="expense-item">
-    <ExpenseDate :date="props.date" />
-    <div class="expense-item__description">
-      <h2>{{ props.title }}</h2>
-      <div class="expense-item__price">${{ props.amount }}</div>
-    </div>
-  </Card>
+  <li>
+    <Card className="expense-item">
+      <ExpenseDate :date="props.date" />
+      <div class="expense-item__description">
+        <h2>{{ props.title }}</h2>
+        <div class="expense-item__price">${{ props.amount }}</div>
+      </div>
+    </Card>
+  </li>
 </template>
 
 <style lang="scss" scoped>
