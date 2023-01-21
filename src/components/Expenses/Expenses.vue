@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { reactive, toRefs, watchEffect } from "vue";
+
 import { Card } from "@/components/common";
 import ExpenseList from "@/components/Expenses/ExpenseList.vue";
 import ExpenseFilter from "@/components/Expenses/ExpenseFilter.vue";
+import ExpenseChart from "@/components/Expenses/ExpenseChart.vue";
 
 import type { Expense } from "@/models";
-import { reactive, toRefs, watchEffect } from "vue";
 
 const props = defineProps<{
   expenses: Array<Expense>;
@@ -37,6 +39,7 @@ function handleFilterChange(selectedYear: string) {
       :selected="filteredYear"
       @filterChange="handleFilterChange"
     />
+    <ExpenseChart :expenses="filteredExpenses" />
     <ExpenseList :expenses="filteredExpenses" />
   </Card>
 </template>
